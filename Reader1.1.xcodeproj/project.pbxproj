@@ -12,6 +12,8 @@
 		6368B7EB228BDF8300789C75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6368B7E9228BDF8300789C75 /* Main.storyboard */; };
 		6368B7ED228BDF8500789C75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6368B7EC228BDF8500789C75 /* Assets.xcassets */; };
 		6368B7F0228BDF8500789C75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6368B7EE228BDF8500789C75 /* LaunchScreen.storyboard */; };
+		6368B7FA228BDFF400789C75 /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368B7F9228BDFF400789C75 /* ReaderViewController.swift */; };
+		6368B80A228BFDD300789C75 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368B809228BFDD300789C75 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		6368B7EC228BDF8500789C75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6368B7EF228BDF8500789C75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6368B7F1228BDF8500789C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6368B7F9228BDFF400789C75 /* ReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
+		6368B809228BFDD300789C75 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				6368B7EC228BDF8500789C75 /* Assets.xcassets */,
 				6368B7EE228BDF8500789C75 /* LaunchScreen.storyboard */,
 				6368B7F1228BDF8500789C75 /* Info.plist */,
+				6368B7F9228BDFF400789C75 /* ReaderViewController.swift */,
+				6368B809228BFDD300789C75 /* Constants.swift */,
 			);
 			path = Reader1.1;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			files = (
 				6368B7E8228BDF8300789C75 /* ViewController.swift in Sources */,
 				6368B7E6228BDF8300789C75 /* AppDelegate.swift in Sources */,
+				6368B7FA228BDFF400789C75 /* ReaderViewController.swift in Sources */,
+				6368B80A228BFDD300789C75 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
