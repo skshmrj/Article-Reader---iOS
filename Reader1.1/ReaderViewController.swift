@@ -160,7 +160,7 @@ class ReaderViewController: UIViewController {
         titleLabel = UILabel()
         var font = UIFont.systemFont(ofSize: 24)
         let fontColor = UIColor.darkText
-        var paragraph = NSMutableParagraphStyle()
+        let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
         paragraph.lineBreakMode = .byTruncatingTail
 //        paragraph.line
