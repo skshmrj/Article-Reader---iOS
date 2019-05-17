@@ -54,6 +54,7 @@ class ReaderViewController: UIViewController {
         createAndLayoutScrollView()
         createAndLayoutToolBar()
         createAndLayoutContents()
+        setUpReadingMode()
         scrollView.delegate = self
     }
     
@@ -232,7 +233,7 @@ class ReaderViewController: UIViewController {
         textSettingsVC?.popoverPresentationController?.delegate = self
         setUpReadingMode()
         present(textSettingsVC!, animated: true, completion: {
-            
+            self.textSettingsVC!.delegate = self
         })
     }
     

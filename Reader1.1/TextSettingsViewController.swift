@@ -23,6 +23,7 @@ class TextSettingsViewController: UIViewController {
 //        view.backgroundColor = .clear
         createAndLayoutContainerView()
         createAndLayoutControls()
+        setupReadingMode()
     }
     
     func createAndLayoutContainerView(){
@@ -94,6 +95,7 @@ class TextSettingsViewController: UIViewController {
         readModeChangeControl.tintColor = #colorLiteral(red: 0.1194586232, green: 0.1295717061, blue: 0.1424147785, alpha: 1)
         readModeChangeControl.onTintColor = #colorLiteral(red: 0.1194586232, green: 0.1295717061, blue: 0.1424147785, alpha: 1)
         configureReadingModeToggle()
+        readModeChangeControl.addTarget(self, action: #selector(switchMode), for: .valueChanged)
         readModeView.addSubview(readModeChangeControl)
         readModeChangeControl.translatesAutoresizingMaskIntoConstraints = false
         let switchCenterY = NSLayoutConstraint(item: readModeChangeControl, attribute: .centerY, relatedBy: .equal, toItem: readModeView, attribute: .centerY, multiplier: 1, constant: 0)
@@ -112,6 +114,60 @@ class TextSettingsViewController: UIViewController {
         let iconHeight = NSLayoutConstraint(item: readModeChangeIcon, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 16)
         readModeView.addConstraints([iconCenterY, iconLeading, iconWidth, iconHeight])
         
+    }
+    
+    @objc func switchMode(){
+        var darkModeIsOn = UserDefaults.standard.bool(forKey: Constants.userDefaultsKey.darkMode)
+        darkModeIsOn = !darkModeIsOn
+        UserDefaults.standard.set(darkModeIsOn, forKey: Constants.userDefaultsKey.darkMode)
+        setupReadingMode()
+    }
+    
+    func setupReadingMode(){
+        let isDarkModeOn = UserDefaults.standard.bool(forKey: Constants.userDefaultsKey.darkMode)
+        
+        if isDarkModeOn{
+            // Configure for dark mode
+            
+            //Customize the Font Resize Slider Control's Color
+            fontSizeControl.tintColor = Constants.mode.light.color1
+            
+            // Customise the Brightness Slider Control's Color
+            brightnessControl.tintColor = Constants.mode.light.color1
+            
+            // Customise the Dark Mode Icon's Color
+            readModeChangeIcon.tintColor = Constants.mode.light.color1
+            
+            // Customise the current view's backgroundColor
+            self.popoverPresentationController?.backgroundColor = Constants.mode.dark.color1
+            
+            //Change the parent controller's mode
+            delegate?.readingModeWillChange(to: .dark)
+            
+            // Change the status bar appearance
+            delegate?.configureStatusBar(for: .dark)
+            
+        } else {
+            // Configure for light mode
+            
+            // Customize the Font Resize Slider Control's Color
+            fontSizeControl.tintColor = Constants.mode.dark.color2
+            
+            // Customise the Brightness Slider Control's Color
+            brightnessControl.tintColor = Constants.mode.dark.color2
+            
+            // Customise the Dark Mode Icon's Color
+            readModeChangeIcon.tintColor = Constants.mode.dark.color2
+            
+            // Customise the current view's backgroundColor
+            self.popoverPresentationController?.backgroundColor = Constants.mode.light.color1
+            
+            // change the parent controller's mode
+            delegate?.readingModeWillChange(to: .light)
+            
+            // Change the status bar appearance
+            delegate?.configureStatusBar(for: .light)
+        }
     }
     
     func configureReadingModeToggle(){
