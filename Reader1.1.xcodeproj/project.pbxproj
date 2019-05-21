@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631453812294242300B150D1 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631453802294242300B150D1 /* TextView.swift */; };
 		6368B7E6228BDF8300789C75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368B7E5228BDF8300789C75 /* AppDelegate.swift */; };
 		6368B7E8228BDF8300789C75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368B7E7228BDF8300789C75 /* ViewController.swift */; };
 		6368B7EB228BDF8300789C75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6368B7E9228BDF8300789C75 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		631453802294242300B150D1 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		6368B7E2228BDF8300789C75 /* Reader1.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reader1.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6368B7E5228BDF8300789C75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6368B7E7228BDF8300789C75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				6368B7F9228BDFF400789C75 /* ReaderViewController.swift */,
 				6368B809228BFDD300789C75 /* Constants.swift */,
 				636FAD5C228D29220024D289 /* TextSettingsViewController.swift */,
+				631453802294242300B150D1 /* TextView.swift */,
 			);
 			path = Reader1.1;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				6368B7E8228BDF8300789C75 /* ViewController.swift in Sources */,
 				6368B7E6228BDF8300789C75 /* AppDelegate.swift in Sources */,
 				6368B7FA228BDFF400789C75 /* ReaderViewController.swift in Sources */,
+				631453812294242300B150D1 /* TextView.swift in Sources */,
 				636FAD5D228D29220024D289 /* TextSettingsViewController.swift in Sources */,
 				6368B80A228BFDD300789C75 /* Constants.swift in Sources */,
 			);

@@ -35,7 +35,7 @@ class ReaderViewController: UIViewController {
     var titleLabel: UILabel!
     var subtitleLabel: UILabel!
     var closeButton: UIButton!
-    var body: UILabel!
+    var body: TextView!
     
     // Text Settings Control
     var textSettingsVC: TextSettingsViewController?
@@ -55,6 +55,7 @@ class ReaderViewController: UIViewController {
         createAndLayoutToolBar()
         createAndLayoutContents()
         setUpReadingMode()
+        customizeMenuItemActions()
         scrollView.delegate = self
     }
     
@@ -185,16 +186,18 @@ class ReaderViewController: UIViewController {
     }
     
     func createAndLayoutBody(){
-        body = UILabel()
-        body.numberOfLines = 0
+        body = TextView()
         body.backgroundColor = .clear
+        body.isScrollEnabled = false
         let font = UIFont.systemFont(ofSize: 17)
         let fontColor = UIColor.darkText
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .natural
-        paragraph.lineBreakMode = .byClipping
-        let titleText = NSAttributedString(string: Constants.article, attributes: [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paragraph, NSAttributedString.Key.foregroundColor: fontColor])
-        body.attributedText = titleText
+        paragraph.lineBreakMode = .byWordWrapping
+        var attributes = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paragraph, NSAttributedString.Key.foregroundColor: fontColor]
+        Constants.article.addAttributes(attributes, range: NSRange(location: 0, length: Constants.article.length))
+//        let titleText = NSAttributedString(string: Constants.article, attributes: [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paragraph, NSAttributedString.Key.foregroundColor: fontColor])
+        body.attributedText = Constants.article
         containerView.addSubview(body)
         body.translatesAutoresizingMaskIntoConstraints = false
         let trailing = NSLayoutConstraint(item: body, attribute: .trailing, relatedBy: .equal, toItem: containerView, attribute: .trailing, multiplier: 1, constant: -16)
@@ -240,6 +243,17 @@ class ReaderViewController: UIViewController {
     @objc func share(){
         
     }
+    
+    func customizeMenuItemActions(){
+        let highlight = UIMenuItem(title: "Highlight", action: #selector(highlightText))
+        UIMenuController.shared.menuItems = [highlight]
+    }
+    //
+    @objc func highlightText(){
+        //        storeHighlight(range: text.selectedRange)
+        Constants.article.addAttribute(NSAttributedString.Key.backgroundColor, value: UIColor.yellow, range: body.selectedRange)
+        body.attributedText = Constants.article
+    }
 }
 
 extension ReaderViewController: UIPopoverPresentationControllerDelegate {
@@ -252,7 +266,7 @@ extension ReaderViewController: TextSettingsViewControllerDelegate{
     
     func changeFontSize(senderValue: CGFloat){
         let newSize = Constants.minFontSize + ((Constants.maxFontSize-Constants.minFontSize)*senderValue)
-        body.font = body.font.withSize(newSize)
+        body.font = body.font?.withSize(newSize)
     }
     
     func readingModeWillChange(to mode: ReadingMode){
